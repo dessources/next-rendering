@@ -1,14 +1,12 @@
-// 🐶 Importe `Suspense` de `React`
-
-// 🐶 Importe les `Skeletons`
-// import {SkeletonCardList} from '@/components/skeleton-card-list'
-// import {SkeletonPostList} from '@/components/skeleton-post-list'
+import {SkeletonCardList} from '@/components/skeleton-card-list'
+import {SkeletonPostList} from '@/components/skeleton-post-list'
 import {ProductList} from './product-list'
 import {PostList} from './post-list'
 
 import {Separator} from '@/components/ui/separator'
 import RenderTime from '@/components/render-time'
 import {unstable_noStore as noStore} from 'next/cache'
+import {Suspense} from 'react'
 
 const Page = async () => {
   noStore()
@@ -30,13 +28,15 @@ const Page = async () => {
         {/* 🐶 Utilise <Suspense> pour affichier <ProductList />   */}
         {/* Affiche `SkeletonCardList` pendant le chargement  */}
         {/* 📑Suspense https://react.dev/reference/react/Suspense */}
+        {/* <Suspense fallback={<SkeletonCardList />}> */}
         <ProductList />
+        {/* </Suspense> */}
         <Separator className="my-4" />
         <h2 className="mb-4 text-center text-3xl font-bold">Posts</h2>
-        {/* 🐶 Utilise <Suspense> pour affichier <PostList />   */}
-        {/* Affiche `SkeletonPostList` pendant le chargement  */}
-        {/* 📑Suspense https://react.dev/reference/react/Suspense */}
+
+        {/* <Suspense fallback={<SkeletonPostList />}> */}
         <PostList />
+        {/* </Suspense> */}
         <RenderTime name="streaming page" />
       </div>
     </>
