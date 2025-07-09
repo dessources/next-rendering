@@ -1,4 +1,4 @@
-// 🐶 Spécifie clairement qu'il s'agit d'un composant Client
+'use client'
 import {useState} from 'react'
 
 export const Counter = () => {
